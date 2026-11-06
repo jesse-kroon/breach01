@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BREACH_01 — Operation Black Vault</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="intro-active">
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="BREACH_01 startscherm">BREACH<span>_01</span></a>
+      <div class="topbar-right">
+        <span class="phase" id="phase">01 / 04 <span>BRIEFING</span></span>
+        <button class="restart" id="restart" type="button">HERSTART</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="section-heading"><span>SECURITY OPERATIONS</span><span>SIMULATIE // OFFLINE</span></div>
+      <div class="workspace">
+        <section class="panel main-panel" id="intro" aria-labelledby="intro-title">
+          <div class="panel-label"><span>MISSIEBRIEFING</span><span>01 — INIT</span></div>
+          <div class="intro-content">
+            <p class="eyebrow"><span class="dot"></span> INKOMENDE OPDRACHT</p>
+            <h1 id="intro-title">OPERATION<br><span>BLACK VAULT</span></h1>
+            <p class="description">In de digitale kluis van een onderzoekscentrum zit mogelijk een beveiligingsfout. Jij bent ingeschakeld om het systeem te testen.</p>
+            <div class="mission"><span>JOUW MISSIE</span><p>Ontdek het lek, breek in en repareer de beveiliging.</p></div>
+            <p class="no-experience">Geen programmeerervaring nodig.</p>
+            <button class="primary" id="start" type="button">START MISSIE <span aria-hidden="true">↗</span></button>
+            <p class="footnote">Een fictieve hacking-simulatie — 3 tot 5 minuten</p>
+          </div>
+        </section>
+
+        <section class="panel main-panel terminal-panel" id="terminal" aria-labelledby="terminal-title" hidden>
+          <div class="panel-label"><span id="terminal-title">SECURITY TERMINAL</span><span>02 — ONDERZOEK</span></div>
+          <div class="terminal-body" id="terminal-output" role="log" aria-label="Terminalgeschiedenis" aria-live="polite"></div>
+          <form class="terminal-form" id="terminal-form" autocomplete="off">
+            <label for="command"><span aria-hidden="true">visitor@black_vault:~$</span><span class="visually-hidden">Terminalcommando</span></label>
+            <input id="command" type="text" spellcheck="false" autocapitalize="off" placeholder="Typ een commando" aria-describedby="terminal-instruction">
+            <button type="submit">VERSTUUR</button>
+          </form>
+          <div class="terminal-task"><span>HUIDIGE OPDRACHT</span><p id="terminal-instruction">Onderzoek het systeem. Begin met <code>help</code>.</p><div class="hint-controls"><button class="restart" id="hint" type="button">HINT</button><div id="hints" aria-live="polite"></div></div></div>
+        </section>
+
+        <section class="panel main-panel" id="breached" aria-labelledby="breached-title" hidden>
+          <div class="panel-label"><span>BEVEILIGINGSMELDING</span><span>03 — BREACH</span></div>
+          <div class="intro-content breach-content">
+            <p class="eyebrow breach-warning"><span class="dot"></span> SECURITY BREACH DETECTED</p>
+            <h1 id="breached-title" tabindex="-1">ACCESS<br><span>GRANTED</span></h1>
+            <p class="description">Je bent binnen. Maar dit is niet veilig! Andere mensen kunnen precies hetzelfde doen.</p>
+            <div class="mission"><span>VOLGENDE MISSIE</span><p>Repareer de code en beveilig de kluis.</p></div>
+            <button class="primary breach-next" id="open-editor" type="button">OPEN CODE-EDITOR <span aria-hidden="true">↗</span></button>
+          </div>
+        </section>
+
+        <section class="panel main-panel" id="patch" aria-labelledby="patch-title" hidden>
+          <div class="panel-label"><span id="patch-title" tabindex="-1">CODE-EDITOR</span><span>04 — REPARATIE</span></div>
+          <div class="patch-content">
+            <p class="eyebrow">REPARATIEMISSIE</p>
+            <h1>BEVEILIG DE KLUIS</h1>
+            <p class="description">Pas de operator aan zodat beide controles moeten kloppen. Test daarna je reparatie.</p>
+            <div class="code-editor" aria-label="Code voor toegangscontrole"><div>if (username === "admin" <label for="operator" class="visually-hidden">Logische operator</label><input id="operator" type="text" value="||" maxlength="8" spellcheck="false" autocomplete="off"> </div><div>    password === "secret123") {</div><div>  openVault();</div><div>}</div></div>
+            <div class="patch-actions"><button class="primary" id="test-patch" type="button">TEST REPARATIE</button><button class="restart" id="patch-hint" type="button" aria-expanded="false" aria-controls="patch-explanation">UITLEG</button></div>
+            <div class="patch-explanation" id="patch-explanation" hidden>
+              <p><code>||</code> <strong>OF</strong> — Toegang als de gebruikersnaam <em>of</em> het wachtwoord klopt. Eén juiste controle is genoeg.</p>
+              <p><code>&amp;&amp;</code> <strong>EN</strong> — Toegang alleen als de gebruikersnaam <em>én</em> het wachtwoord kloppen. Beide controles zijn nodig.</p>
+            </div>
+            <p class="test-summary" id="test-summary" role="status"></p>
+            <details class="test-details" id="test-details" hidden><summary>Bekijk testuitslagen</summary><div class="test-results" id="test-results"></div></details>
+            <p class="security-note">Dit is een simulatie. Echte applicaties moeten authenticatie veilig aan de serverkant afhandelen.</p>
+          </div>
+        </section>
+
+        <section class="panel main-panel" id="complete" aria-labelledby="complete-title" hidden>
+          <div class="panel-label"><span>MISSIEVOLTOOIING</span><span>04 — SECURED</span></div>
+          <div class="intro-content complete-content">
+            <p class="eyebrow"><span class="dot"></span> ALLE VEILIGHEIDSTESTS GESLAAGD</p>
+            <h1 id="complete-title" tabindex="-1">MISSION COMPLETE<br><span>SYSTEM SECURED</span></h1>
+            <p class="description">Je hebt een beveiligingslek ontdekt, uitgebuit én opgelost. Dat is precies het soort probleem dat software developers leren begrijpen en oplossen.</p>
+            <div class="mission"><span>TITEL VERDIEND</span><p>Junior Security Engineer</p></div>
+            <button class="primary breach-next" id="new-mission" type="button">NIEUWE MISSIE <span aria-hidden="true">↗</span></button>
+            <details class="test-details"><summary>Bekijk testuitslagen</summary><div class="test-results" id="complete-results"></div></details>
+          </div>
+        </section>
+
+        <aside class="panel vault-panel" aria-label="Kluisstatus">
+          <div class="panel-label"><span>DOELSYSTEEM</span><span>BV-01</span></div>
+          <div class="vault-content">
+            <p class="vault-caption">BLACK_VAULT <span>// SECURE STORAGE</span></p>
+            <div class="vault-art" aria-hidden="true"><div class="vault-door"><div class="vault-wheel"><span></span></div></div></div>
+            <div class="status"><span>BEVEILIGINGSSTATUS</span><strong id="vault-status"><span class="status-dot"></span> LOCKED</strong></div>
+            <div class="security-scan" id="security-scan" hidden aria-hidden="true"><span class="scan-label">SECURITY CHECK <strong id="scan-state"></strong></span><div class="scan-track"><span></span></div><div class="scan-markers"><span>AUTH</span><span>GATE</span><span>VAULT</span></div></div>
+            <p class="vault-note">SYSTEEM ONLINE <span>●</span></p>
+          </div>
+        </aside>
+      </div>
+      <footer><span>BREACH_01 / OPERATION BLACK VAULT</span><span>FICTIEVE SIMULATIE</span></footer>
+    </main>
+  </div>
+</body>
+</html>
