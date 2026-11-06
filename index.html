@@ -78,10 +78,50 @@
           <div class="intro-content complete-content">
             <p class="eyebrow"><span class="dot"></span> ALLE VEILIGHEIDSTESTS GESLAAGD</p>
             <h1 id="complete-title" tabindex="-1">MISSION COMPLETE<br><span>SYSTEM SECURED</span></h1>
-            <p class="description">Je hebt een beveiligingslek ontdekt, uitgebuit én opgelost. Dat is precies het soort probleem dat software developers leren begrijpen en oplossen.</p>
+            <p class="description">Je hebt een beveiligingslek ontdekt, uitgebuit én opgelost. Als software developer leer je niet alleen code schrijven, maar ook fouten opsporen, oplossingen bedenken en je werk testen.</p>
             <div class="mission"><span>TITEL VERDIEND</span><p>Junior Security Engineer</p></div>
-            <button class="primary breach-next" id="new-mission" type="button">NIEUWE MISSIE <span aria-hidden="true">↗</span></button>
+            <p class="bonus-invitation">Nog een uitdaging? Kies een optionele bonus over programmeren of netwerken.</p>
+            <div class="complete-actions"><button class="primary" id="start-bonus" type="button">PYTHON-BONUS <span aria-hidden="true">↗</span></button><button class="primary" id="start-network" type="button">NETWERKBONUS <span aria-hidden="true">↗</span></button><button class="restart" id="new-mission" type="button">NIEUWE MISSIE</button></div>
             <details class="test-details"><summary>Bekijk testuitslagen</summary><div class="test-results" id="complete-results"></div></details>
+          </div>
+        </section>
+
+        <section class="panel main-panel" id="bonus" aria-labelledby="bonus-title" hidden>
+          <div class="panel-label"><span id="bonus-title" tabindex="-1">OPTIONELE PYTHONMISSIE</span><span id="bonus-progress">PUZZEL 1 / 2</span></div>
+          <div class="patch-content">
+            <p class="eyebrow">BONUS // PYTHON-SIMULATIE</p>
+            <h1 id="bonus-heading"></h1>
+            <p class="description" id="bonus-task"></p>
+            <div class="code-editor bonus-code"><div id="bonus-code-before"></div><div>if <span id="bonus-condition-before"></span><label for="bonus-answer" class="visually-hidden">Python-operator</label><input id="bonus-answer" type="text" maxlength="8" autocomplete="off" spellcheck="false" aria-describedby="bonus-task"><span id="bonus-condition-after"></span>:</div><div>    print("Toegang verleend")</div><div>else:</div><div>    print("Toegang geweigerd")</div></div>
+            <div class="patch-actions"><button class="primary" id="bonus-test" type="button">TEST CODE</button><button class="restart" id="bonus-hint-button" type="button" aria-expanded="false" aria-controls="bonus-hint">HINT</button><button class="restart" id="bonus-next" type="button" hidden>VOLGENDE PUZZEL</button></div>
+            <p class="patch-explanation" id="bonus-hint" hidden></p>
+            <p class="test-summary" id="bonus-summary" role="status"></p><details class="test-details" id="bonus-details" hidden><summary>Bekijk testuitslagen</summary><div class="test-results" id="bonus-results"></div></details>
+            <p class="security-note">Dit is een Python-simulatie: alleen de aangegeven operators worden gecontroleerd, er wordt geen Python-code uitgevoerd.</p>
+          </div>
+        </section>
+
+        <section class="panel main-panel" id="bonus-complete" aria-labelledby="bonus-complete-title" hidden>
+          <div class="panel-label"><span>BONUSMISSIE</span><span>VOLTOOID</span></div>
+          <div class="intro-content"><p class="eyebrow"><span class="dot"></span> PYTHON-PUZZELS VOLTOOID</p><h1 id="bonus-complete-title" tabindex="-1">BONUS<br><span>COMPLETE</span></h1><p class="description">Je hebt beide programmeerpuzzels opgelost. Goed gedaan!</p><div class="complete-actions"><button class="primary" id="bonus-back" type="button">KIES EEN BONUS</button><button class="restart" id="bonus-restart" type="button">NIEUWE MISSIE</button></div></div>
+        </section>
+
+        <section class="panel main-panel" id="network" aria-labelledby="network-title" hidden>
+          <div class="panel-label"><span id="network-title" tabindex="-1">OPTIONELE NETWERKBONUS</span><span>FIREWALL // SIMULATIE</span></div>
+          <div class="patch-content">
+            <p class="eyebrow">BONUS // SYSTEM ENGINEERING</p>
+            <h1>BEVEILIG HET NETWERK</h1>
+            <p class="description">Alleen de beheercomputer mag de kluis bereiken. Kies een firewallregel die die verbinding doorlaat en andere computers blokkeert.</p>
+            <div class="network-diagram" aria-label="Verbinding van computer via firewall naar kluis"><span>COMPUTER</span><span aria-hidden="true">→</span><span>FIREWALL</span><span aria-hidden="true">→</span><span>KLUIS</span></div>
+            <div class="network-traffic" id="network-traffic" aria-hidden="true" hidden><div class="traffic-lane"><span class="traffic-name">BEHEER</span><div class="traffic-route"><span class="traffic-packet" id="packet-admin"></span></div><span class="traffic-state" id="state-admin"></span></div><div class="traffic-lane"><span class="traffic-name">ONBEKEND</span><div class="traffic-route"><span class="traffic-packet" id="packet-unknown"></span></div><span class="traffic-state" id="state-unknown"></span></div></div>
+            <fieldset class="network-rules"><legend>Kies een firewallregel</legend>
+              <label><input type="radio" name="network-rule" value="all"> Laat alle computers door</label>
+              <label><input type="radio" name="network-rule" value="admin"> Laat alleen de beheercomputer door</label>
+              <label><input type="radio" name="network-rule" value="none"> Blokkeer alle computers</label>
+            </fieldset>
+            <div class="patch-actions"><button class="primary" id="network-test" type="button">TEST VERBINDINGEN</button><button class="restart" id="network-hint-button" type="button" aria-expanded="false" aria-controls="network-hint">HINT</button><button class="restart" id="network-back" type="button">KIES EEN BONUS</button></div>
+            <p class="patch-explanation" id="network-hint" hidden>De kluis moet bereikbaar blijven voor de beheercomputer, maar niet voor andere computers. Een firewall bepaalt welke verbindingen door mogen.</p>
+            <p class="test-summary" id="network-summary" role="status"></p><details class="test-details" id="network-details" hidden><summary>Bekijk testuitslagen</summary><div class="network-results" id="network-results"></div></details>
+            <p class="security-note">Fictieve simulatie: er wordt geen verbinding gemaakt en er worden geen echte firewallregels gewijzigd. Een system engineer zorgt dat systemen en netwerken veilig en betrouwbaar samenwerken.</p>
           </div>
         </section>
 
@@ -89,7 +129,7 @@
           <div class="panel-label"><span>DOELSYSTEEM</span><span>BV-01</span></div>
           <div class="vault-content">
             <p class="vault-caption">BLACK_VAULT <span>// SECURE STORAGE</span></p>
-            <div class="vault-art" aria-hidden="true"><div class="vault-door"><div class="vault-wheel"><span></span></div></div></div>
+            <div class="vault-art" aria-hidden="true"><div class="vault-door"><div class="vault-wheel"><span></span></div></div><span class="vault-scan-line"></span><span class="vault-shield">✓</span></div>
             <div class="status"><span>BEVEILIGINGSSTATUS</span><strong id="vault-status"><span class="status-dot"></span> LOCKED</strong></div>
             <div class="security-scan" id="security-scan" hidden aria-hidden="true"><span class="scan-label">SECURITY CHECK <strong id="scan-state"></strong></span><div class="scan-track"><span></span></div><div class="scan-markers"><span>AUTH</span><span>GATE</span><span>VAULT</span></div></div>
             <p class="vault-note">SYSTEEM ONLINE <span>●</span></p>
